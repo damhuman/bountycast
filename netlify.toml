@@ -1,0 +1,28 @@
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Environment variables (you'll need to set these in Netlify UI)
+# NEXT_PUBLIC_CHAIN_ID=84532
+# NEXT_PUBLIC_RPC_URL=https://sepolia.base.org
+# NEXT_PUBLIC_BASE_EXPLORER=https://sepolia.basescan.org
+# NEXT_PUBLIC_BOUNTY_CONTRACT=0x46C0Ffa9C5E60cf0aBc865Fd293898b776604C19
+# NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=CastBounty
+# NEXT_PUBLIC_CDP_API_KEY=your-key
+# NEXT_PUBLIC_APP_URL=https://your-site.netlify.app
+# DATABASE_URL=your-database-url
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
