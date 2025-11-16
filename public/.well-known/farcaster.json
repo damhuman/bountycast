@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhGRTMzQTcyMzZGRjIyMzk1QjExQkJGQkFDMjdBRDJFRTQxMzY5QzEwIn0",
+    "payload": "eyJkb21haW4iOiJzcGVjdGFjdWxhci1jcnVtYmxlLTgyOTNlNS5uZXRsaWZ5LmFwcCJ9",
+    "signature": "MHg..."
+  },
+  "frame": {
+    "version": "1",
+    "name": "CastBounty",
+    "iconUrl": "https://spectacular-crumble-8293e5.netlify.app/icon.png",
+    "splashImageUrl": "https://spectacular-crumble-8293e5.netlify.app/splash.png",
+    "splashBackgroundColor": "#7c3aed",
+    "homeUrl": "https://spectacular-crumble-8293e5.netlify.app",
+    "webhookUrl": "https://spectacular-crumble-8293e5.netlify.app/api/webhook"
+  },
+  "miniApp": {
+    "version": "1",
+    "name": "CastBounty",
+    "description": "Create and complete micro-bounties on Farcaster with instant crypto payments on Base L2",
+    "iconUrl": "https://spectacular-crumble-8293e5.netlify.app/icon.png",
+    "splashImageUrl": "https://spectacular-crumble-8293e5.netlify.app/splash.png",
+    "splashBackgroundColor": "#7c3aed",
+    "homeUrl": "https://spectacular-crumble-8293e5.netlify.app",
+    "webhookUrl": "https://spectacular-crumble-8293e5.netlify.app/api/webhook",
+    "permissions": [
+      "wallet",
+      "user-profile"
+    ]
+  }
+}

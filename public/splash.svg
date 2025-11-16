@@ -1,0 +1,23 @@
+<svg width="1080" height="1920" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="splashGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1920" fill="url(#splashGrad)"/>
+
+  <circle cx="540" cy="700" r="200" fill="white" opacity="0.1"/>
+  <text x="540" y="820" font-family="Arial, sans-serif" font-size="280" font-weight="bold" fill="white" text-anchor="middle">
+    $
+  </text>
+
+  <text x="540" y="1100" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">
+    CastBounty
+  </text>
+
+  <text x="540" y="1200" font-family="Arial, sans-serif" font-size="36" fill="#c7d2fe" text-anchor="middle">
+    Micro-Bounties on Farcaster
+  </text>
+</svg>

@@ -16,6 +16,16 @@ export const metadata: Metadata = {
     description: "Micro-bounties platform for Farcaster",
     images: ["/og-image.png"],
   },
+  other: {
+    "fc:frame": "vNext",
+    "fc:frame:image": "https://spectacular-crumble-8293e5.netlify.app/og-image.png",
+    "fc:frame:button:1": "Create Bounty",
+    "fc:frame:button:1:action": "link",
+    "fc:frame:button:1:target": "https://spectacular-crumble-8293e5.netlify.app/create",
+    "fc:frame:button:2": "Browse Bounties",
+    "fc:frame:button:2:action": "link",
+    "fc:frame:button:2:target": "https://spectacular-crumble-8293e5.netlify.app/browse",
+  },
 };
 
 export default function RootLayout({
