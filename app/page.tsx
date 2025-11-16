@@ -1,65 +1,152 @@
-import Image from "next/image";
+'use client'
+
+import { ConnectWallet } from '@coinbase/onchainkit/wallet'
+import { Avatar, Name, Identity } from '@coinbase/onchainkit/identity'
+import Link from 'next/link'
+import { useAccount } from 'wagmi'
 
 export default function Home() {
+  const { address } = useAccount()
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+      {/* Header */}
+      <header className="border-b bg-white/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <span className="text-3xl">🎯</span>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              CastBounty
+            </h1>
+          </div>
+          <div className="flex items-center gap-4">
+            {address && (
+              <Identity address={address}>
+                <Avatar />
+                <Name />
+              </Identity>
+            )}
+            <ConnectWallet />
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-20 text-center">
+        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Micro-Bounties on Farcaster
+        </h1>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Create tasks, lock funds in escrow, get submissions, and pay winners instantly.
+          All powered by Base L2.
+        </p>
+        <div className="flex gap-4 justify-center">
+          <Link
+            href="/create"
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg"
+          >
+            Create Bounty
+          </Link>
+          <Link
+            href="/browse"
+            className="px-8 py-4 bg-white text-gray-700 font-semibold rounded-lg border-2 border-gray-300 hover:border-blue-600 hover:text-blue-600 transition-all"
+          >
+            Browse Bounties
+          </Link>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            icon="🔒"
+            title="Smart Escrow"
+            description="Funds locked in smart contract until winner selected. Trustless and transparent."
+          />
+          <FeatureCard
+            icon="⚡"
+            title="Instant Payments"
+            description="Winner gets paid immediately on selection. No waiting, no intermediaries."
+          />
+          <FeatureCard
+            icon="💎"
+            title="Low Fees on Base"
+            description="Build on Base L2 for minimal gas fees. 2.5% platform fee only."
+          />
+          <FeatureCard
+            icon="🎨"
+            title="Any Type of Work"
+            description="Design, code, content, research, translations - any micro-task works."
+          />
+          <FeatureCard
+            icon="📱"
+            title="Native to Farcaster"
+            description="Create and submit bounties directly in your social feed with Frames."
+          />
+          <FeatureCard
+            icon="🏆"
+            title="Build Reputation"
+            description="Earn on-chain reputation score. Top contributors get discovered."
+          />
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-4xl font-bold text-center mb-12">How It Works</h2>
+        <div className="grid md:grid-cols-4 gap-8">
+          <Step number="1" title="Create" description="Post your task and lock funds in escrow" />
+          <Step number="2" title="Submit" description="Contributors submit their work" />
+          <Step number="3" title="Select" description="Choose the best submission" />
+          <Step number="4" title="Pay" description="Winner gets paid automatically" />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="container mx-auto px-4 py-20 text-center">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
+          <h2 className="text-4xl font-bold mb-4">Ready to get started?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join the future of decentralized work on Farcaster
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/create"
+            className="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Create Your First Bounty
+          </Link>
         </div>
-      </main>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t bg-white/80 backdrop-blur-sm py-8">
+        <div className="container mx-auto px-4 text-center text-gray-600">
+          <p>Built with OnchainKit on Base • Powered by Farcaster Frames</p>
+        </div>
+      </footer>
     </div>
-  );
+  )
+}
+
+function FeatureCard({ icon, title, description }: { icon: string; title: string; description: string }) {
+  return (
+    <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="text-4xl mb-4">{icon}</div>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  )
+}
+
+function Step({ number, title, description }: { number: string; title: string; description: string }) {
+  return (
+    <div className="text-center">
+      <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+        {number}
+      </div>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  )
 }

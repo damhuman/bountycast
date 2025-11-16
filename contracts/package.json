@@ -1,0 +1,17 @@
+{
+  "name": "castbounty-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for CastBounty platform",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:sepolia": "hardhat run scripts/deploy.ts --network baseSepolia",
+    "verify": "hardhat verify --network baseSepolia"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.0.1",
+    "hardhat": "^2.19.4",
+    "dotenv": "^16.3.1"
+  }
+}

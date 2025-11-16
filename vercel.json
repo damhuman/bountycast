@@ -1,0 +1,14 @@
+{
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "NEXT_PUBLIC_CHAIN_ID": "84532",
+    "NEXT_PUBLIC_RPC_URL": "https://sepolia.base.org",
+    "NEXT_PUBLIC_BASE_EXPLORER": "https://sepolia.basescan.org",
+    "NEXT_PUBLIC_BOUNTY_CONTRACT": "0x46C0Ffa9C5E60cf0aBc865Fd293898b776604C19",
+    "NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME": "CastBounty"
+  }
+}

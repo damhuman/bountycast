@@ -1,0 +1,9 @@
+https://docs.base.org/get-started/base
+https://www.launchonbase.xyz/
+https://docs.base.org/get-started/build-app
+https://docs.base.org/get-started/launch-token
+https://docs.base.org/base-app/introduction/beta-faq
+https://www.base.org/build/mini-apps
+
+https://paragraph.com/@builders-garden/viral-farcaster-mini-apps
+https://docs.base.org/onchainkit/guides/ai-prompting-guide
